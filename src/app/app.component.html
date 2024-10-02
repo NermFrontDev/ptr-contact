@@ -1,0 +1,42 @@
+<div class="container-invitation container">
+  <div class="my-4">
+    <p class="p-0 m-0 text-center">{{ datosContact.verso }}</p>
+    <p class="p-0 m-0 text-center">{{ datosContact.cita }}</p>
+  </div>
+  <div class="welcome my-3">
+    <h2 class="m-0 text-center title-invitation">{{ datosContact.welcome }}</h2>
+  </div>
+  <p class="p-0 my-3 subtitle">Marque según sea su preferencia</p>
+  <form>
+    <div class="options d-flex flex-column gap-2">
+      <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels">
+        <input type="radio" class="form-check-input" name="options" id="{{opt}}" autocomplete="off">
+        <label class="form-check-label" for="{{opt}}">{{ opt }}</label>
+      </div>
+    </div>
+    <div class="data-form d-flex flex-column align-items-center justify-content-center mt-4 gap-2">
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="nameValue">Nombre:</label>
+        <input class="form-control" type="text" name="name" id="nameValue" autocomplete="off" required>
+      </div>
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="phoneValue">Teléfono:</label>
+        <input class="form-control" type="tel" name="phone" id="phoneValue" autocomplete="off" required>
+      </div>
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="addressValue">Dirección:</label>
+        <input class="form-control" type="text" name="address" id="addressValue" autocomplete="off" required>
+      </div>
+    </div>
+    <div class="text-center d-grid mt-4 container">
+      <button type="submit" class="btn btn-secondary">
+        <span class="m-0 p-0">Enviar</span>
+      </button>
+    </div>
+  </form>
+  <div class="logos-container mt-4">
+    <div class="logo-content d-flex flex-row align-items-center justify-content-center gap-5">
+      <img *ngFor="let img of imgLogos" src="{{ img.imgUrl }}" alt="{{ img.imgAlt }}">
+    </div>
+  </div>
+</div>
