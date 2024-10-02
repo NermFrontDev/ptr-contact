@@ -12,3 +12,13 @@ body {
   font-style: normal;
   font-variant: normal;
 }
+
+app-root {
+  height: 100vh;
+}
+
+@media (min-width: 767.98px) {
+  body {
+    background-size: inherit;
+  }
+}

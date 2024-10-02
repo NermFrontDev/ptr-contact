@@ -25,6 +25,8 @@
 .form-check-input[type=radio] {
   border-radius: 20%;
   padding: 9px;
+  border: 2px solid #BC134B;
+  background: #ffffff60;
 }
 
 .form-control {
@@ -43,13 +45,13 @@
 }
 
 .form-check-input:checked {
-  background-color: #bc1359;
-  border-color: #bc1359;
+  background-color: #BC134B;
+  border-color: #BC134B;
   box-shadow: 0 0 0 .25rem rgba(188, 19, 75, 0.25)
 }
 
 .btn-secondary {
-  background-color: #bc1359 !important;
+  background-color: #BC134B !important;
   border: none;
   span {
     font-weight: 600;
@@ -60,7 +62,7 @@
 
 .logo-content {
   img {
-    width: 80px;
+    width: 120px;
   }
 }
 

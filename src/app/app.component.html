@@ -1,12 +1,12 @@
-<div class="container-invitation container">
-  <div class="my-4">
-    <p class="p-0 m-0 text-center">{{ datosContact.verso }}</p>
+<div class="container-invitation container col-12 col-md-8 col-lg-5 d-flex flex-column align-items-center justify-content-center gap-4 gap-lg-5">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <p class="p-0 m-0 text-center col-12 col-md-10 col-lg-9">{{ datosContact.verso }}</p>
     <p class="p-0 m-0 text-center">{{ datosContact.cita }}</p>
   </div>
-  <div class="welcome my-3">
+  <div class="welcome">
     <h2 class="m-0 text-center title-invitation">{{ datosContact.welcome }}</h2>
   </div>
-  <p class="p-0 my-3 subtitle">Marque según sea su preferencia</p>
+  <p class="m-0 subtitle">Marque según sea su preferencia</p>
   <form>
     <div class="options d-flex flex-column gap-2">
       <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels">
@@ -34,9 +34,9 @@
       </button>
     </div>
   </form>
-  <div class="logos-container mt-4">
+  <div class="logos-container">
     <div class="logo-content d-flex flex-row align-items-center justify-content-center gap-5">
-      <img *ngFor="let img of imgLogos" src="{{ img.imgUrl }}" alt="{{ img.imgAlt }}">
+      <img *ngFor="let img of imgLogos" src="{{ img.imgUrl }}" alt="{{ img.imgAlt }}" loading="lazy">
     </div>
   </div>
 </div>
