@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import Swal from 'sweetalert2';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -58,9 +58,6 @@ export class AppComponent {
       phoneNumber: formValues.phone_number,
       address: formValues.address,
     };
-
-    console.log('Data:', formValues);
-    console.log('Data:', formValues.option);
 
     emailjs
       .send(environment.emailjs.serviceId, environment.emailjs.templateId, templateParams, environment.emailjs.publicKey)
