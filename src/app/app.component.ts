@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
