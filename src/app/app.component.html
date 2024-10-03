@@ -7,29 +7,38 @@
     <h2 class="m-0 text-center title-invitation">{{ datosContact.welcome }}</h2>
   </div>
   <p class="m-0 subtitle">Marque según sea su preferencia</p>
-  <form>
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail($event)">
     <div class="options d-flex flex-column gap-2">
-      <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels">
-        <input type="radio" class="form-check-input" name="options" id="{{opt}}" autocomplete="off">
-        <label class="form-check-label" for="{{opt}}">{{ opt }}</label>
+      <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels; let i = index">
+        <input
+          type="radio"
+          class="form-check-input"
+          formControlName="option"
+          name="option"
+          [id]="'option_' + i"
+          [value]="opt">
+        <label class="form-check-label" [for]="'option_' + i">{{ opt }}</label>
       </div>
     </div>
     <div class="data-form d-flex flex-column align-items-center justify-content-center mt-4 gap-2">
       <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
-        <label class="form-label m-0" for="nameValue">Nombre:</label>
-        <input class="form-control" type="text" name="name" id="nameValue" autocomplete="off" required>
+        <label class="form-label m-0" for="userName">Nombre:</label>
+        <input formControlName="user_name" class="form-control" type="text" name="userName" id="userName" autocomplete="off" required>
       </div>
       <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
-        <label class="form-label m-0" for="phoneValue">Teléfono:</label>
-        <input class="form-control" type="tel" name="phone" id="phoneValue" autocomplete="off" required>
+        <label class="form-label m-0" for="phoneNumber">Teléfono:</label>
+        <input formControlName="phone_number" class="form-control" type="number" name="phoneNumber" id="phoneNumber" autocomplete="off" required>
       </div>
       <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
-        <label class="form-label m-0" for="addressValue">Dirección:</label>
-        <input class="form-control" type="text" name="address" id="addressValue" autocomplete="off" required>
+        <label class="form-label m-0" for="address">Dirección:</label>
+        <input formControlName="address" class="form-control" type="text" name="address" id="address" autocomplete="off" required>
       </div>
     </div>
     <div class="text-center d-grid mt-4 container">
-      <button type="submit" class="btn btn-secondary">
+      <!-- [disabled]="!contactForm.valid" -->
+      <!-- [ngClass]="{'disabled':contactForm.valid}" -->
+      <button
+        type="submit" class="btn btn-secondary">
         <span class="m-0 p-0">Enviar</span>
       </button>
     </div>

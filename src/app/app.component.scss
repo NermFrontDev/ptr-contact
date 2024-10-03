@@ -59,6 +59,9 @@
     letter-spacing: 1.5px;
   }
 }
+.btn-secondary.disabled {
+  filter: brightness(0.6);
+}
 
 .logo-content {
   img {
