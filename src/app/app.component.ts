@@ -47,6 +47,13 @@ export class AppComponent {
   }
 
   public sendEmail(e: Event):void {
+
+    console.log(
+      environment.emailjs.serviceId,
+      environment.emailjs.templateId,
+      environment.emailjs.publicKey)
+    ;
+
     e.preventDefault();
 
     const formValues = this.contactForm.value;
