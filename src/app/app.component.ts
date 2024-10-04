@@ -68,13 +68,10 @@ export class AppComponent {
 
     emailjs
       .send(
-        // @ts-ignore
-        process.env.EMAILJS_SERVICE_ID ?? environment.SERVICE_ID,
-        // @ts-ignore
-        process.env.EMAILJS_TEMPLATE_ID ?? environment.TEMPLATE_ID,
+        window.process.env['EMAILJS_SERVICE_ID'] ?? environment.SERVICE_ID,
+        window.process.env['EMAILJS_TEMPLATE_ID'] ?? environment.TEMPLATE_ID,
         templateParams,
-        // @ts-ignore
-        process.env.EMAILJS_PUBLIC_KEY ?? environment.PUBLIC_KEY,
+        window.process.env['EMAILJS_PUBLIC_KEY'] ?? environment.PUBLIC_KEY,
       )
       .then(
         (response) => {
