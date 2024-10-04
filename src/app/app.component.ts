@@ -49,9 +49,9 @@ export class AppComponent {
   public sendEmail(e: Event):void {
 
     console.log(
-      environment.emailjs.serviceId,
-      environment.emailjs.templateId,
-      environment.emailjs.publicKey)
+      environment.SERVICE_ID,
+      environment.TEMPLATE_ID,
+      environment.PUBLIC_KEY)
     ;
 
     e.preventDefault();
@@ -67,7 +67,12 @@ export class AppComponent {
     };
 
     emailjs
-      .send(environment.emailjs.serviceId, environment.emailjs.templateId, templateParams, environment.emailjs.publicKey)
+      .send(
+        process.env.EMAILJS_SERVICE_ID ?? environment.SERVICE_ID,
+        process.env.EMAILJS_TEMPLATE_ID ?? environment.TEMPLATE_ID,
+        templateParams,
+        process.env.EMAILJS_PUBLIC_KEY ?? environment.PUBLIC_KEY,
+      )
       .then(
         (response) => {
           this.showSuccess();

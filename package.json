@@ -4,7 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:Prod": "ng serve --configuration production",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -21,6 +20,7 @@
     "@angular/router": "^16.2.0",
     "@emailjs/browser": "^4.4.1",
     "bootstrap": "^5.3.3",
+    "process": "^0.11.10",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.14.1",
     "tslib": "^2.3.0",
@@ -31,6 +31,7 @@
     "@angular/cli": "^16.2.12",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
+    "@types/node": "^22.7.4",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
