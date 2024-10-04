@@ -48,11 +48,11 @@ export class AppComponent {
 
   public sendEmail(e: Event):void {
 
-    console.log(
+    /* console.log(
       environment.SERVICE_ID,
       environment.TEMPLATE_ID,
       environment.PUBLIC_KEY)
-    ;
+    ; */
 
     e.preventDefault();
 
