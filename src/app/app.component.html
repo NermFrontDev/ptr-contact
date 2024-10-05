@@ -1,0 +1,60 @@
+<div class="container-invitation container col-12 col-md-8 col-lg-5 d-flex flex-column align-items-center justify-content-center gap-4 gap-lg-5">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <p class="p-0 m-0 text-center col-12 col-md-10 col-lg-9">{{ datosContact.verso }}</p>
+    <p class="p-0 m-0 text-center">{{ datosContact.cita }}</p>
+  </div>
+  <div class="welcome">
+    <h2 class="m-0 text-center title-invitation">{{ datosContact.welcome }}</h2>
+  </div>
+
+  <p class="m-0 subtitle">Marque según sea su preferencia</p>
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+    <div class="options d-flex flex-column gap-2">
+      <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels; let i = index">
+        <input
+          type="radio"
+          class="form-check-input"
+          formControlName="option"
+          name="option"
+          [id]="'option_' + i"
+          [value]="opt">
+        <label class="form-check-label" [for]="'option_' + i">{{ opt }}</label>
+      </div>
+    </div>
+    <div class="data-form d-flex flex-column align-items-center justify-content-center mt-4 gap-2">
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="userName">Nombre:</label>
+        <input [formControl]="contactForm.controls.user_name" class="form-control" type="text">
+      </div>
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="phoneNumber">Teléfono:</label>
+        <input formControlName="phone_number" class="form-control" type="number" name="phoneNumber" id="phoneNumber" autocomplete="off" required>
+      </div>
+      <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
+        <label class="form-label m-0" for="address">Dirección:</label>
+        <input formControlName="address" class="form-control" type="text" name="address" id="address" autocomplete="off" required>
+      </div>
+    </div>
+    <div class="text-center d-grid mt-4 container">
+      <!-- [disabled]="!contactForm.valid" -->
+      <!-- [ngClass]="{'disabled':contactForm.valid}" -->
+
+      {{
+        contactForm.valid
+      }}
+      <br>
+      {{
+        contactForm.value | json
+      }}
+      <button
+        type="submit" [disabled]="!contactForm.valid" class="btn btn-secondary m-0 p-0">
+        Enviar
+      </button>
+    </div>
+  </form>
+  <div class="logos-container">
+    <div class="logo-content d-flex flex-row align-items-center justify-content-center gap-5">
+      <img *ngFor="let img of imgLogos" src="{{ img.imgUrl }}" alt="{{ img.imgAlt }}" loading="lazy">
+    </div>
+  </div>
+</div>
