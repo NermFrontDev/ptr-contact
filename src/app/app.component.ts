@@ -87,7 +87,7 @@ export class AppComponent {
         });
       }
     );
-    // this.onReset();
+    this.onReset();
 
   }
 
@@ -103,7 +103,8 @@ export class AppComponent {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: `Thanks ${userName}`,
+      width: '400px',
+      title: `Gracias ${userName}`,
       text: 'Your email was sent successfully!',
       showConfirmButton: false,
       timer: 2000
