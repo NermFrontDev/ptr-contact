@@ -1,14 +1,22 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, Validators} from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
+import { CommonModule } from '@angular/common';
+import emailDataJson from '../environments/prod-environment-data.json'
+
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, ReactiveFormsModule,
+    FormsModule,],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Church contact form';
@@ -28,34 +36,23 @@ export class AppComponent {
   ];
 
   imgLogos = [
-    {imgUrl:'assets/img/tes-logo.webp', imgAlt:'Tucson Esperanza Hispanic Church Logo'},
-    {imgUrl:'assets/img/tss-logo.webp', imgAlt:'Tucson South Hispanic Church Logo'}
+    {imgUrl:'tes-logo.webp', imgAlt:'Tucson Esperanza Hispanic Church Logo'},
+    {imgUrl:'tss-logo.webp', imgAlt:'Tucson South Hispanic Church Logo'}
   ];
 
-  contactForm!: FormGroup;
+  contactForm = new FormGroup({
+    option: new FormControl<string>('', [Validators.required]),
+    user_name: new FormControl<string>('', [Validators.required]),
+    phone_number: new FormControl<string>('', [Validators.required]),
+    address: new FormControl<string>('', [Validators.required]),
+  });
 
   constructor(
-    private fb: FormBuilder,
     private router: Router)
   {
-    this.contactForm = this.fb.group({
-      option: ['', Validators.required],
-      user_name: ['', Validators.required],
-      phone_number: ['', Validators.required],
-      address: ['', [Validators.required, Validators.email]],
-    });
   }
 
-  public sendEmail(e: Event):void {
-
-    /* console.log(
-      environment.SERVICE_ID,
-      environment.TEMPLATE_ID,
-      environment.PUBLIC_KEY)
-    ; */
-
-    e.preventDefault();
-
+  sendEmail():void {
     const formValues = this.contactForm.value;
 
     const templateParams = {
@@ -67,12 +64,15 @@ export class AppComponent {
     };
 
     emailjs
-      .send(
-        window.process.env['EMAILJS_SERVICE_ID'] ?? environment.SERVICE_ID,
-        window.process.env['EMAILJS_TEMPLATE_ID'] ?? environment.TEMPLATE_ID,
-        templateParams,
-        window.process.env['EMAILJS_PUBLIC_KEY'] ?? environment.PUBLIC_KEY,
-      )
+    .send(
+      // @ts-ignore
+      emailDataJson.serviceId ?? environment.SERVICE_ID,
+      // @ts-ignore
+      emailDataJson.templateId  ?? environment.TEMPLATE_ID,
+      templateParams,
+      // @ts-ignore
+      emailDataJson.publicKey  ?? environment.PUBLIC_KEY,
+    )
       .then(
         (response) => {
           this.showSuccess();
@@ -88,8 +88,7 @@ export class AppComponent {
       }
     );
     this.onReset();
-    /* if (this.contactForm.valid) {
-    } */
+
   }
 
   onReset(): void {

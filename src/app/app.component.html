@@ -6,8 +6,9 @@
   <div class="welcome">
     <h2 class="m-0 text-center title-invitation">{{ datosContact.welcome }}</h2>
   </div>
+
   <p class="m-0 subtitle">Marque según sea su preferencia</p>
-  <form [formGroup]="contactForm" (ngSubmit)="sendEmail($event)">
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
     <div class="options d-flex flex-column gap-2">
       <div class="item-check form-check d-flex align-items-start gap-3" *ngFor="let opt of optionsLabels; let i = index">
         <input
@@ -23,7 +24,7 @@
     <div class="data-form d-flex flex-column align-items-center justify-content-center mt-4 gap-2">
       <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
         <label class="form-label m-0" for="userName">Nombre:</label>
-        <input formControlName="user_name" class="form-control" type="text" name="userName" id="userName" autocomplete="off" required>
+        <input [formControl]="contactForm.controls.user_name" class="form-control" type="text">
       </div>
       <div class="form-item d-flex align-items-end col-10 justify-content-center gap-2">
         <label class="form-label m-0" for="phoneNumber">Teléfono:</label>
@@ -37,9 +38,17 @@
     <div class="text-center d-grid mt-4 container">
       <!-- [disabled]="!contactForm.valid" -->
       <!-- [ngClass]="{'disabled':contactForm.valid}" -->
+
+      {{
+        contactForm.valid
+      }}
+      <br>
+      {{
+        contactForm.value | json
+      }}
       <button
-        type="submit" class="btn btn-secondary">
-        <span class="m-0 p-0">Enviar</span>
+        type="submit" [disabled]="!contactForm.valid" class="btn btn-secondary m-0 p-0">
+        Enviar
       </button>
     </div>
   </form>

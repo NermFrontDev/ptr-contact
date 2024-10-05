@@ -1,71 +1,72 @@
 .container-invitation {
-  p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
+    p {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .title-invitation {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+    }
+    .form-check-label {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
   }
-  .title-invitation {
-    font-weight: 600;
-    font-size: 1.8rem;
-  }
-  .subtitle {
-    font-size: 1.1rem;
-  }
-  .form-check-label {
+  
+  .form-label {
     font-size: 1.1rem;
     font-weight: 500;
   }
-}
-
-.form-label {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.form-check-input[type=radio] {
-  border-radius: 20%;
-  padding: 9px;
-  border: 2px solid #BC134B;
-  background: #ffffff60;
-}
-
-.form-control {
-  font-weight: 500;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid #2b2b2b;
-  border-radius: 0;
-  width: 80%;
-  padding: 0;
-  padding-top: .375rem;
-  /* margin-bottom: 6px; */
-}
-.form-control:focus {
-  box-shadow: none;
-}
-
-.form-check-input:checked {
-  background-color: #BC134B;
-  border-color: #BC134B;
-  box-shadow: 0 0 0 .25rem rgba(188, 19, 75, 0.25)
-}
-
-.btn-secondary {
-  background-color: #BC134B !important;
-  border: none;
-  span {
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+  
+  .form-check-input[type=radio] {
+    border-radius: 20%;
+    padding: 9px;
+    border: 2px solid #BC134B;
+    background: #ffffff60;
   }
-}
-.btn-secondary.disabled {
-  filter: brightness(0.6);
-}
-
-.logo-content {
-  img {
-    width: 120px;
+  
+  .form-control {
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #2b2b2b;
+    border-radius: 0;
+    width: 80%;
+    padding: 0;
+    padding-top: .375rem;
+    /* margin-bottom: 6px; */
   }
-}
-
+  .form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-check-input:checked {
+    background-color: #BC134B;
+    border-color: #BC134B;
+    box-shadow: 0 0 0 .25rem rgba(188, 19, 75, 0.25)
+  }
+  
+  .btn-secondary {
+    background-color: #BC134B !important;
+    border: none;
+    span {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+  }
+  .btn-secondary.disabled {
+    filter: brightness(0.6);
+  }
+  
+  .logo-content {
+    img {
+      width: 120px;
+    }
+  }
+  
+  
