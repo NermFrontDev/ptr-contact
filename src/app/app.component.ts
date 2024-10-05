@@ -1,13 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
-import { Router } from '@angular/router';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
-import { CommonModule } from '@angular/common';
 import emailDataJson from '../environments/prod-environment-data.json'
 
 @Component({
@@ -36,8 +36,8 @@ export class AppComponent {
   ];
 
   imgLogos = [
-    {imgUrl:'tes-logo.webp', imgAlt:'Tucson Esperanza Hispanic Church Logo'},
-    {imgUrl:'tss-logo.webp', imgAlt:'Tucson South Hispanic Church Logo'}
+    {imgUrl:'../assets/img/tes-logo.webp', imgAlt:'Tucson Esperanza Hispanic Church Logo'},
+    {imgUrl:'../assets/img/tss-logo.webp', imgAlt:'Tucson South Hispanic Church Logo'}
   ];
 
   contactForm = new FormGroup({
@@ -87,7 +87,7 @@ export class AppComponent {
         });
       }
     );
-    this.onReset();
+    // this.onReset();
 
   }
 

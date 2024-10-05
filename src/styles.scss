@@ -8,19 +8,18 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-  
+
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-variant: normal;
   }
-  
+
   app-root {
     height: 100vh;
   }
-  
+
   @media (min-width: 767.98px) {
     body {
       background-size: inherit;
     }
   }
-  

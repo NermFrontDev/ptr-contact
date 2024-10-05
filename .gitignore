@@ -6,7 +6,6 @@
 /out-tsc
 /bazel-out
 
-src/environments/prod-environment-data.json
 
 # Node
 /node_modules

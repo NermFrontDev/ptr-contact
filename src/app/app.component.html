@@ -36,19 +36,9 @@
       </div>
     </div>
     <div class="text-center d-grid mt-4 container">
-      <!-- [disabled]="!contactForm.valid" -->
-      <!-- [ngClass]="{'disabled':contactForm.valid}" -->
-
-      {{
-        contactForm.valid
-      }}
-      <br>
-      {{
-        contactForm.value | json
-      }}
       <button
-        type="submit" [disabled]="!contactForm.valid" class="btn btn-secondary m-0 p-0">
-        Enviar
+        type="submit" [disabled]="!contactForm.valid" class="btn btn-secondary">
+        <span class="m-0 p-0">Enviar</span>
       </button>
     </div>
   </form>

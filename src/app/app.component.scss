@@ -14,21 +14,22 @@
     .form-check-label {
       font-size: 1.1rem;
       font-weight: 500;
+      margin-top: 2.5px;
     }
   }
-  
+
   .form-label {
     font-size: 1.1rem;
     font-weight: 500;
   }
-  
+
   .form-check-input[type=radio] {
     border-radius: 20%;
     padding: 9px;
-    border: 2px solid #BC134B;
+    border: 2px solid #A11040;
     background: #ffffff60;
   }
-  
+
   .form-control {
     font-weight: 500;
     background-color: transparent;
@@ -43,15 +44,15 @@
   .form-control:focus {
     box-shadow: none;
   }
-  
+
   .form-check-input:checked {
-    background-color: #BC134B;
-    border-color: #BC134B;
+    background-color: #A11040;
+    border-color: #A11040;
     box-shadow: 0 0 0 .25rem rgba(188, 19, 75, 0.25)
   }
-  
+
   .btn-secondary {
-    background-color: #BC134B !important;
+    background-color: #A11040 !important;
     border: none;
     span {
       font-weight: 600;
@@ -62,11 +63,10 @@
   .btn-secondary.disabled {
     filter: brightness(0.6);
   }
-  
+
   .logo-content {
     img {
       width: 120px;
     }
   }
-  
-  
+
