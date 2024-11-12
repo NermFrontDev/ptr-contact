@@ -30,7 +30,7 @@ export class AppComponent {
   optionsLabels: string[] = [
     'Deseo que oren por mí',
     'Deseo estudiar la Biblia',
-    'Deseo una visita pastoral',
+    'Deseo una visita en mi hogar',
     'Deseo aceptar a Cristo como mi salvador',
     'Deseo bautizarme',
   ];
